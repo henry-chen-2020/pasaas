@@ -1,11 +1,8 @@
 <template>
   <v-app>
     <v-app-bar app color="white" light >
-      <div class="d-flex align-center">
-        <v-img alt="Cisco Logo" class="shrink mr-4"
-          src="../src/assets/cisco-logo-1-300x151.png" width="100"/>
-        <h2 class="text--secondary">Posture</h2>
-      </div>
+      <v-img alt="Cisco Logo" src="../src/assets/cisco-logo-1-300x151.png" class="shrink mr-4" width="75"/>
+      <v-toolbar-title class="text-h5 text--secondary">Posaas</v-toolbar-title>
       <v-spacer></v-spacer>
       <span>
         <v-icon class="ms-8">mdi-help</v-icon>
@@ -14,10 +11,8 @@
       </span>
     </v-app-bar>
 
-    <v-main class="pa-8 mt-12 blue-grey lighten-5 light">
-      <v-card>
-        <Endpoints class="pa-2" />
-      </v-card>
+    <v-main class="pa-4 mt-16 blue-grey lighten-5 light">
+      <Endpoints class="pa-2" />
     </v-main>
   </v-app>
 </template>
@@ -26,8 +21,6 @@
 import Endpoints from '@/components/Endpoints'
 export default {
   name: 'App',
-  components: {
-    Endpoints
-  }
+  components: { Endpoints }
 }
 </script>

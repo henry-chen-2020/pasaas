@@ -1,7 +1,7 @@
 <template>
   <v-card>
-    <v-card-title>
-      <h2 class="text--secondary font-weight-light mb-2">Endpoint Inventory</h2>
+    <v-card-title class="mt-n4 mb-n4">
+      <h3 class="text--secondary font-weight-regular">Endpoint Inventory</h3>
       <v-spacer></v-spacer>
       <v-icon class="mt-4 mr-1">mdi-filter</v-icon>
       <v-text-field v-model="search" append-icon="mdi-magnify" label="Serach" single-line hide-details>
