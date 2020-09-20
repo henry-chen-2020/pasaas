@@ -32,3 +32,14 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## Docker (Nginx)
+
+### Build Image
+```
+docker build -t posture-ui .
+```
+### Run Image
+```
+docker run -d -p 5050:80 posture-ui
+```
