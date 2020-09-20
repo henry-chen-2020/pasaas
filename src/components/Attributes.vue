@@ -1,13 +1,11 @@
 <template>
-  <v-data-table :items="attrs" :headers="headers"
-    :items-per-page="25"
-    :footer-props="{
-      'items-per-page-options': [10, 25, 50, 100]
-    }">
+  <v-data-table :items="attrs" :headers="headers" :items-per-page="25"
+    :footer-props="{ 'items-per-page-options': [10, 25, 50, 100] }">
     <template #[`item.source`]="{value}">
       <Source :source="value" />
     </template>
     <template #[`item.timestamp`]="{value}">
+      <v-icon>mdi-clock-outline</v-icon>
       {{ value | moment("YYYY/MM/DD:HH:mm:ss")}}
     </template>
     <template #[`item.val`]="{value}">

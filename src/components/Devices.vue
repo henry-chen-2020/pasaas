@@ -3,15 +3,14 @@
     <v-card-title>
       <h2 class="text--secondary font-weight-light mb-2">Endpoint Inventory</h2>
       <v-spacer></v-spacer>
+      <v-icon class="mt-4 mr-1">mdi-filter</v-icon>
       <v-text-field v-model="search" append-icon="mdi-magnify" label="Serach" single-line hide-details>
       </v-text-field>
     </v-card-title>
 
     <v-data-table :items="allDevices.endpoints" :headers="headers" show-select single-select
       :items-per-page="15" :search="search"
-      :footer-props="{
-        'items-per-page-options': [5, 15, 30, 90]
-      }">
+      :footer-props="{ 'items-per-page-options': [5, 15, 30, 90] }">
       <template #[`item.sources`]="{value}">
         <span v-for="source in value" :key="source">
           <Source :source="source" />
@@ -29,6 +28,7 @@
         </v-tooltip>
       </template>
       <template #[`item.create_time`]="{value}">
+        <v-icon>mdi-clock-outline</v-icon>
         {{ value | moment("YYYY/MM/DD:HH:mm:ss") }}
       </template>
       <template #[`item.actions`]="{item}">
@@ -42,7 +42,6 @@
 import { mapGetters } from 'vuex'
 import Details from './Details'
 import Source from './Source'
-
 export default {
   name: "Devices",
   components: {
