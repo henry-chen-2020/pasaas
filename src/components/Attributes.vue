@@ -1,11 +1,28 @@
 <template>
-  <v-data-table :items="attr" :headers="headers">
+  <v-data-table :items="attrs" :headers="headers"
+    :items-per-page="25"
+    :footer-props="{
+      'items-per-page-options': [10, 25, 50, 100]
+    }">
+    <template #[`item.source`]="{value}">
+      <Source :source="value" />
+    </template>
+    <template #[`item.timestamp`]="{value}">
+      {{ value | moment("YYYY/MM/DD:HH:mm:ss")}}
+    </template>
+    <template #[`item.val`]="{value}">
+      {{ value }}
+    </template>
   </v-data-table>
 </template>
 
 <script>
+import Source from './Source'
 export default {
   name: "Attributes",
+  components: {
+    Source
+  },
   props: ["data"],
   computed: {
     headers() {
@@ -29,5 +46,4 @@ export default {
     }
   }
 }
-
 </script>

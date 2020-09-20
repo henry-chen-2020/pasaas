@@ -1,22 +1,22 @@
 <template>
-  <div class="text-center">
-    <v-dialog v-model="dialog" width="500">
-      <template v-slot:activitors="{ on, attrs }">
-        <v-btn v-bind="attrs" v-on="on">
-          detail
-        </v-btn>
+  <div class="text-left">
+    <v-dialog v-model="dialog" width="1500">
+      <template v-slot:activator="{ on, attrs }">
+        <v-icon v-bind="attrs" v-on="on" color="light-blue" title="All Attributes">
+          mdi-note-multiple
+        </v-icon>
       </template>
 
       <v-card>
-        <v-card-title class="headline grey">
+        <v-card-title class="headline">
           Attributes
         </v-card-title>
-        <v-card-text>
-          Details
+        <v-card-text class="pa-0">
+          <Attributes :data="data" />
         </v-card-text>
-        <v-card-actions>
-          <v-space></v-space>
-          <v-btn color="primary" @click="dialog = false">
+        <v-card-actions class="blue-grey lighten-5">
+          <v-spacer></v-spacer>
+          <v-btn color="primary ma-4" @click="dialog = false">
             Close
           </v-btn>
         </v-card-actions>
@@ -26,7 +26,12 @@
 </template>
 
 <script>
+import Attributes from './Attributes'
 export default {
+  components: {
+    Attributes
+  },
+  props: ['data'],
   data() {
     return {
       dialog: false

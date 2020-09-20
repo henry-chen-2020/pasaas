@@ -1,54 +1,57 @@
 <template>
-  <v-data-table :items="allDevices.endpoints" :headers="headers">
-    <template #[`item.sources`]="{value}">
-      <span v-for="source in value" :key="source">
-        <v-btn :color="`${colorMap(source)}`" small class="sl-3">{{ source }}</v-btn>
-      </span>
-    </template>
-    <template #[`item.attributes.mac_addr.val`]="{value}">
-      {{ value && value[0] }}
-      <v-tooltip bottom>
-        <template #activator="{ on, attrs }">
-          <v-btn v-if="value && value.length > 1" v-bind="attrs" v-on="on" fab x-small>
-            {{ value.length - 1 }}...
-          </v-btn>
-        </template>
-        <span>{{ value && value.slice(1) }}</span>
-      </v-tooltip>
-      <!-- <div v-for="mac in value" :key="mac">
-        {{ mac }}
-      </div> -->
-    </template>
-    <template #[`item.create_time`]="{value}">
-      {{ value | moment("YYYY/MM/DD:HH:mm:ss") }}
-    </template>
-    <template #[`item.actions`]="{item}">
-      <!-- <v-icon @click="perform(item.epid)" color="teal" title="more..."> mdi-details</v-icon>
-      <v-icon @click="perform(item.epid)" color="purple" title="more">mdi-eye</v-icon>
-      <v-icon @click="perform(item.epid)" color="orange">mdi-note-multiple</v-icon> -->
-      <Details :data="item.attributes" />
-    </template>
-  </v-data-table>
+  <v-card>
+    <v-card-title>
+      <h2 class="text--secondary font-weight-light mb-2">Endpoint Inventory</h2>
+      <v-spacer></v-spacer>
+      <v-text-field v-model="search" append-icon="mdi-magnify" label="Serach" single-line hide-details>
+      </v-text-field>
+    </v-card-title>
+
+    <v-data-table :items="allDevices.endpoints" :headers="headers" show-select
+      :items-per-page="15" :search="search"
+      :footer-props="{
+        'items-per-page-options': [5, 15, 30, 90]
+      }">
+      <template #[`item.sources`]="{value}">
+        <span v-for="source in value" :key="source">
+          <Source :source="source" />
+        </span>
+      </template>
+      <template #[`item.attributes.mac_addr.val`]="{value}">
+        {{ value && value[0] }}
+        <v-tooltip bottom>
+          <template #activator="{ on, attrs }">
+            <v-btn v-if="value && value.length > 1" v-bind="attrs" v-on="on" fab x-small class="ml-3">
+              {{ value.length - 1 }}
+            </v-btn>
+          </template>
+          <span>{{ value && value.slice(1) }}</span>
+        </v-tooltip>
+      </template>
+      <template #[`item.create_time`]="{value}">
+        {{ value | moment("YYYY/MM/DD:HH:mm:ss") }}
+      </template>
+      <template #[`item.actions`]="{item}">
+        <Details :data="item.attributes" />
+      </template>
+    </v-data-table>
+  </v-card>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 import Details from './Details'
+import Source from './Source'
 
 export default {
   name: "Devices",
   components: {
-    Details
+    Details,
+    Source
   },
-  methods: {
-    colorMap(source) {
-      const MAP = {
-        'AMP': 'cyan',
-        'DUO': 'light-green',
-        'ISE': 'light-blue',
-        'MDM': 'amber'
-      }
-      return MAP[source] || 'grey'
+  data() {
+    return {
+      search: ''
     }
   },
   computed: {
