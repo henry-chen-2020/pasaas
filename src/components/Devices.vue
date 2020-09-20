@@ -7,7 +7,7 @@
       </v-text-field>
     </v-card-title>
 
-    <v-data-table :items="allDevices.endpoints" :headers="headers" show-select
+    <v-data-table :items="allDevices.endpoints" :headers="headers" show-select single-select
       :items-per-page="15" :search="search"
       :footer-props="{
         'items-per-page-options': [5, 15, 30, 90]
@@ -21,7 +21,7 @@
         {{ value && value[0] }}
         <v-tooltip bottom>
           <template #activator="{ on, attrs }">
-            <v-btn v-if="value && value.length > 1" v-bind="attrs" v-on="on" fab x-small class="ml-3">
+            <v-btn v-if="value && value.length > 1" v-bind="attrs" v-on="on" rounded x-small class="ml-3">
               {{ value.length - 1 }}
             </v-btn>
           </template>

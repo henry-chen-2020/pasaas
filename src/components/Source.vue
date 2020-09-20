@@ -1,5 +1,5 @@
 <template>
-  <v-btn :color="`${colorMap(source)}`" small class="mr-5">{{ source }}</v-btn>
+  <v-btn :color="`${colorMap(source)}`" small class="mr-2">{{ source }}</v-btn>
 </template>
 
 <script>
