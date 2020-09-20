@@ -16,18 +16,18 @@
 
     <v-main class="pa-8 mt-12 blue-grey lighten-5 light">
       <v-card>
-        <Devices class="pa-2" />
+        <Endpoints class="pa-2" />
       </v-card>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import Devices from './components/Devices'
+import Endpoints from '@/components/Endpoints'
 export default {
   name: 'App',
   components: {
-    Devices
+    Endpoints
   }
 }
 </script>

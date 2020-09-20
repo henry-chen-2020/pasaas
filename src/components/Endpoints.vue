@@ -17,22 +17,13 @@
         </span>
       </template>
       <template #[`item.attributes.mac_addr.val`]="{value}">
-        {{ value && value[0] }}
-        <v-tooltip bottom>
-          <template #activator="{ on, attrs }">
-            <v-btn v-if="value && value.length > 1" v-bind="attrs" v-on="on" rounded x-small class="ml-3">
-              {{ value.length - 1 }}
-            </v-btn>
-          </template>
-          <span>{{ value && value.slice(1) }}</span>
-        </v-tooltip>
+        <MAC_Address :addrs="value" />
       </template>
       <template #[`item.create_time`]="{value}">
-        <v-icon>mdi-clock-outline</v-icon>
-        {{ value | moment("YYYY/MM/DD:HH:mm:ss") }}
+        <Timestamp :timestamp="value" />
       </template>
       <template #[`item.actions`]="{item}">
-        <Details :data="item.attributes" />
+        <ViewDetail :data="item.attributes" />
       </template>
     </v-data-table>
   </v-card>
@@ -40,14 +31,10 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import Details from './Details'
-import Source from './Source'
+import { MAC_Address, Source, Timestamp, ViewDetail } from '@/components/renderer'
 export default {
-  name: "Devices",
-  components: {
-    Details,
-    Source
-  },
+  name: "Endpoints",
+  components: { MAC_Address, Source, Timestamp, ViewDetail },
   data() {
     return {
       search: ''

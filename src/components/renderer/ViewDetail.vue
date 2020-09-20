@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import Attributes from './Attributes'
+import Attributes from '@/components/Attributes'
 export default {
   components: {
     Attributes

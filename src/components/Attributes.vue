@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import Source from './Source'
+import { Source } from '@/components/renderer'
 export default {
   name: "Attributes",
   components: {
