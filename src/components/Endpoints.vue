@@ -51,7 +51,7 @@ export default {
         { text: 'Model', value: 'attributes.model.val' },
         { text: 'MAC Address', value: 'attributes.mac_addr.val' },
         { text: 'Username', value: 'attributes.username.val' },
-        { text: 'Created Time', value: 'create_time' },
+        { text: 'Creation Time (local)', value: 'create_time' },
         { text: 'Actions', value: 'actions' }
       ]
     }

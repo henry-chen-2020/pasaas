@@ -38,6 +38,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ### Build Image
 ```
 docker build -t posture-ui .
+docker build --no-cache -t posture-ui -f config/docker/Dockerfile .
 ```
 ### Run Image
 ```

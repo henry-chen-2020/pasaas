@@ -10,8 +10,10 @@
       <v-card>
         <v-card-title class="headline">
           Attributes
+          <v-spacer></v-spacer>
+          <v-icon @click="dialog = false">mdi-close</v-icon>
         </v-card-title>
-        <v-card-text class="pa-0">
+        <v-card-text class="ps-4">
           <Attributes :data="data" />
         </v-card-text>
         <v-card-actions class="blue-grey lighten-5">

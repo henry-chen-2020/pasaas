@@ -5,8 +5,7 @@
       <Source :source="value" />
     </template>
     <template #[`item.timestamp`]="{value}">
-      <v-icon>mdi-clock-outline</v-icon>
-      {{ value | moment("YYYY/MM/DD:HH:mm:ss")}}
+      <Timestamp :timestamp="value" />
     </template>
     <template #[`item.val`]="{value}">
       {{ value }}
@@ -15,11 +14,11 @@
 </template>
 
 <script>
-import { Source } from '@/components/renderer'
+import { Source, Timestamp } from '@/components/renderer'
 export default {
   name: "Attributes",
   components: {
-    Source
+    Source, Timestamp
   },
   props: ["data"],
   computed: {
@@ -28,7 +27,7 @@ export default {
         { text: 'Attribute', value: 'name' },
         { text: 'Value', value: 'val' },
         { text: 'Source', value: 'source' },
-        { text: 'Timestamp', value: 'timestamp' }
+        { text: 'Timestamp (local)', value: 'timestamp' }
       ]
     },
     attrs() {
