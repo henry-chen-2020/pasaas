@@ -48,7 +48,7 @@ export default {
         { text: 'Sources', value: 'sources' },
         { text: 'Device Name', value: 'attributes.device_name.val' },
         { text: 'Hostname', value: 'attributes.hostname.val' },
-        { text: 'Model', value: 'attributes.model.val' },
+        { text: 'Model', value: 'attributes.iModel.val' },
         { text: 'MAC Address', value: 'attributes.mac_addr.val' },
         { text: 'Username', value: 'attributes.username.val' },
         { text: 'Creation Time (local)', value: 'create_time' },
