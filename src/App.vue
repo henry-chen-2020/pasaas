@@ -2,7 +2,7 @@
   <v-app>
     <v-app-bar app color="white" light >
       <v-img alt="Cisco Logo" src="../src/assets/cisco-logo-1-300x151.png" class="shrink mr-4" width="75"/>
-      <v-toolbar-title class="text-h5 text--secondary">Posaas</v-toolbar-title>
+      <v-toolbar-title class="text-h5 text--secondary">Posture as a Sevice</v-toolbar-title>
       <v-spacer></v-spacer>
       <span>
         <v-icon class="ms-8">mdi-help</v-icon>

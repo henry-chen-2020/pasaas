@@ -7,5 +7,8 @@ export { Source }
 import Timestamp from './Timestamp'
 export { Timestamp as Timestamp }
 
+import UniqueID from './UniqueID'
+export { UniqueID }
+
 import ViewDetail from './ViewDetail'
 export { ViewDetail }
