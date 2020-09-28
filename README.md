@@ -38,7 +38,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ### Build Image
 ```
 docker build -t posture-ui .
-docker build --no-cache -t hechen2/posture-ui -f config/docker/Dockerfile .
+docker build --no-cache -t hechen2/posture-ui -f deploy/docker/Dockerfile .
 ```
 ### Run Image
 ```
