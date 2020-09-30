@@ -4,6 +4,7 @@
 
 <script>
 export default {
+  name: "Source",
   props: ['source'],
   methods: {
     colorMap(source) {
@@ -18,9 +19,3 @@ export default {
   }  
 }
 </script>
-
-<style scoped>
-.v-btn {
-  cursor: auto;
-}
-</style>

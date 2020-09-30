@@ -48,7 +48,7 @@ export default {
     ...mapGetters(['allDevices']),
     headers() {
       return [
-        { text: 'Endpoint ID', value: 'epid', width: 125, align: "end", divider: true },
+        { text: 'Endpoint Id (copy)', value: 'epid', width: 150, align: "end", divider: true },
         { text: 'Sources', value: 'sources', divider: true },
         { text: 'Device Name', value: 'attributes.device_name.val', divider: true},
         { text: 'Hostname', value: 'attributes.hostname.val', divider: true },

@@ -12,6 +12,7 @@
 
 <script>
 export default {
+  name: "Timestamp",
   props: ['timestamp']  
 }
 </script>

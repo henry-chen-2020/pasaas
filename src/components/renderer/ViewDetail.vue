@@ -30,6 +30,7 @@
 <script>
 import Attributes from '@/components/Attributes'
 export default {
+  name: "ViewDetail",
   components: {
     Attributes
   },
